@@ -13,6 +13,8 @@
 				<th>Nombre</th>
 				<th>Descripcion</th>
 				<th>Identificador</th>
+				<th colspan="2">Acciones</th>
+				
 			</tr>
 		</thead>
 		<tbody>
@@ -22,6 +24,8 @@
 					<td>@encuesta.Nombre</td>
 					<td>@encuesta.Descripcion</td>
 					<td>@encuesta.URL</td>
+					<td><a href="/Encuestas/Edit/@encuesta.Id" class="btn btn-dark">Editar</a></td>
+					<td>Borrar </td>
 				</tr>
 			}
 		</tbody>

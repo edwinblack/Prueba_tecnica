@@ -16,7 +16,7 @@ namespace Prueba_tecnica.Pages.Encuestas
 		}
         public void OnGet()
         {
-            var encuestas = dbContext.EncuestasEncabezados.ToList();
+            EncuestasEncabezados = dbContext.EncuestasEncabezados.ToList();
         }
     }
 }

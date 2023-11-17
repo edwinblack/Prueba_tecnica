@@ -1,0 +1,49 @@
+﻿@page "{id:Guid}"
+@model Prueba_tecnica.Pages.Encuestas.EditModel
+@{
+}
+
+
+<h1 class="mb-3">Editar Encuesta</h1>
+
+<form method="post">
+
+	<div class="mb-3">
+		<label class="form-label">Nombre</label>
+		<input type="text" class="form-control" asp-for="EditEncuestaEncabezadoViewModel.Nombre" />
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label">Descripcion</label>
+		<input type="text" class="form-control" asp-for="EditEncuestaEncabezadoViewModel.Descripcion" />
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label">URL</label>
+		<input type="text" class="form-control" asp-for="EditEncuestaEncabezadoViewModel.URL" readonly />
+	</div>
+
+	@foreach( var campo in Model.EditEncuestaEncabezadoViewModel.ListaCampos)
+	{
+		<div class="row align-items-end">
+			<div class="col">
+				<label class="form-label"> Nombre del campo </label>
+				<input type="text" class="form-control" asp-for="@campo.NombreCampo" />
+			</div>
+			<div class="col">
+				<label class="form-label"> Titulo </label>
+				<input type="text" class="form-control" asp-for="@campo.Titulo" />
+			</div>
+			<div class="col">
+				<label class="form-label"> TipoCampo </label>
+				<input type="text" class="form-control" asp-for="@campo.TipoCampo" />
+			</div>
+			<div class="col">
+				<label class="form-label"> Requerido </label>
+				<input type="text" asp-for="@campo.Requerido" />
+			</div>
+		</div>
+		
+	}
+
+</form>
