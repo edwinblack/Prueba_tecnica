@@ -1,0 +1,32 @@
+﻿@page
+@model Prueba_tecnica.Pages.Encuestas.ListModel
+@{
+}
+
+<h1 class="mb-3">Lista de Encuestas</h1>
+
+@if(Model.EncuestasEncabezados != null && Model.EncuestasEncabezados.Any())
+{
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Descripcion</th>
+				<th>Identificador</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach( var encuesta in Model.EncuestasEncabezados)
+			{
+				<tr>
+					<td>@encuesta.Nombre</td>
+					<td>@encuesta.Descripcion</td>
+					<td>@encuesta.URL</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+} else
+{
+	<p>Encuestas no encontradas</p>
+}

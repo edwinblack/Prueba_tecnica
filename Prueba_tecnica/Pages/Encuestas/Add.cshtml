@@ -1,0 +1,68 @@
+﻿@page
+@model Prueba_tecnica.Pages.Encuestas.AddModel
+@{
+	var message = ViewData["Message"]?.ToString();
+}
+
+<form method="post">
+	<h1 class="mb-3">Crear nueva encuesta</h1>
+
+
+	@if (!string.IsNullOrWhiteSpace(message))
+	{
+		<div class="alert alert-success" role="alert">
+			@message
+		</div>
+	}
+
+	<div class="mb-3"> 
+		<label class="form-label">Nombre</label>
+		<input type="text" class="form-control" asp-for="NewEncuestaRequest.Nombre" />
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label">Descripcion</label>
+		<input type="text" class="form-control" asp-for="NewEncuestaRequest.Descripcion"/>
+	</div>
+
+	<h3>Campos</h3>
+	
+	<input type="button" value="Agregar Campo" onClick="AddItem();" ID="add" class="btn btn-secondary mt-5">
+
+	<div class="mb-3 mt-3">
+		<button type="submit" class="btn btn-primary">Crear</button>
+	</div>
+</form>
+
+@section Scripts
+	{
+	<script>
+		function AddItem() {
+			var index = $('input[name^="NewEncuestaRequest.ListaCampos"]').length;
+			if(index > 0){
+				index = index / 4;
+			}
+
+			$("#add").before('<div class="row align-items-end">\
+				<div class="col" >\
+				<label class="form-label" > Nombre del campo </label>\
+					<input type="text" class="form-control" name="NewEncuestaRequest.ListaCampos[' + index + '].NombreCampo" />\
+				</div>\
+				<div class= "col" >\
+				<label class= "form-label" > Titulo </label>\
+						<input type = "text" class="form-control" name="NewEncuestaRequest.ListaCampos[' + index + '].Titulo" />\
+					</div>\
+					<div class= "col" >\
+					<label class= "form-label" > TipoCampo </label>\
+							<input type = "text" class="form-control" name="NewEncuestaRequest.ListaCampos[' + index + '].TipoCampo" />\
+						</div>\
+						<div class= "col" >\
+						<label class= "form-label" > Requerido </label>\
+								<input type="checkbox" name= "NewEncuestaRequest.ListaCampos[' + index + '].Requerido" />\
+							</div>\
+			</div>')
+							
+			
+		}
+	</script>
+}
